@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import './App.css'
+import Choice from './Choice'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Topic = lazy(() => import("./Topic"))
+const Artist = lazy(() => import("./Artist"))
 
-export default App;
+const App = () => (
+  <div className="App">
+    <header className="App-header">
+      <BrowserRouter>
+        <Routes>
+
+          <Route path="/" element={
+            <Choice />
+          } />
+          
+          <Route path="/topic/:topic" element={
+            <Suspense>
+              <Topic />
+            </Suspense>
+          } />
+
+          <Route path="/artist/:artist" element={
+            <Suspense>
+              <Artist />
+            </Suspense>
+          } />
+
+        </Routes>
+      </BrowserRouter>
+    </header>
+  </div>
+)
+
+export default App
