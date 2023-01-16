@@ -9,7 +9,7 @@ const Artist = lazy(() => import("./Artist"))
 const App = () => (
   <div className="App">
     <header className="App-header">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
 
           <Route path="/" element={
@@ -29,7 +29,7 @@ const App = () => (
           } />
 
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </header>
   </div>
 )
