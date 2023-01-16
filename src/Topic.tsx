@@ -34,7 +34,7 @@ const Topic = () => {
         <section>
             {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
                 <article key={id}>
-                    <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken Image. Sorry." />
+                    <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken. Sorry." />
                     <h2>{title} - <Link to={`/artist/${artist_id}`}>{artist_title}</Link></h2>
                 </article>
             ))}
