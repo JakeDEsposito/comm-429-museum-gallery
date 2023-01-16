@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { iiif_url_end, TopicRes } from "./Topic"
 
 const Artist = () => {
@@ -8,7 +8,7 @@ const Artist = () => {
 
     useEffect(() => {
         fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][artist_id]=" + artist).then(res => res.json()).then(data => setData(data))
-    }, [])
+    }, [artist])
 
     if (!data)
         return (
@@ -19,7 +19,7 @@ const Artist = () => {
         <section>
         {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
             <article key={id}>
-                <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} />
+                <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken Image. Sorry." />
                 <h2>
                     {title} - {artist_title}
                 </h2>

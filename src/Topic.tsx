@@ -22,7 +22,7 @@ const Topic = () => {
 
     useEffect(() => {
         fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic).then(res => res.json()).then(data => setData(data))
-    }, [])
+    }, [topic])
 
     if (!data)
         return (
@@ -34,7 +34,7 @@ const Topic = () => {
         <section>
             {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
                 <article key={id}>
-                    <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} />
+                    <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken Image. Sorry." />
                     <h2>{title} - <Link to={`/artist/${artist_id}`}>{artist_title}</Link></h2>
                 </article>
             ))}
