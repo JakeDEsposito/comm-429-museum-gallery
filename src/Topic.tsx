@@ -23,9 +23,12 @@ const Topic = () => {
     const location = useLocation()
     const path_noPage = location.pathname.substring(0, location.pathname.length - 1)
 
+    const [startPage, setStartPage] = useState(page || "1")
+
     useEffect(() => {
-        fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic + "&page=" + page + "&limit=4").then(res => res.json()).then(data => setData(data))
-    }, [topic])
+        fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic + "&page=" + startPage + "&limit=4").then(res => res.json()).then(data => setData(data))
+        navigate(path_noPage + startPage)
+    }, [topic, startPage])
 
     if (!data)
         return (
@@ -42,13 +45,11 @@ const Topic = () => {
                 </article>
             ))}
             <button onClick={() => {
-                if (page && page !== "1")
-                    navigate(path_noPage + (parseInt(page) - 1))
-                window.location.reload()
+                if (startPage !== "1")
+                    setStartPage((p) => "" + (parseInt(p) - 1))
             }}>previous</button>
             <button onClick={() => {
-                page && navigate(path_noPage + (parseInt(page) + 1))
-                window.location.reload()
+                setStartPage((p) => "" + (parseInt(p) + 1))
             }}>next</button>
         </section>
     )
