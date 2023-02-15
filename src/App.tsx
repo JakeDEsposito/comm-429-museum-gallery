@@ -16,7 +16,7 @@ const App = () => (
             <Choice />
           } />
           
-          <Route path="/topic/:topic" element={
+          <Route path="/topic/:topic/:page" element={
             <Suspense>
               <Topic />
             </Suspense>

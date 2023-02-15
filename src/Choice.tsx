@@ -7,7 +7,7 @@ const Choice = () => {
 
     return (
         <form onSubmit={(e) => {
-            navigate("/topic/" + topic)
+            navigate("/topic/" + topic + "/1")
             e.preventDefault()
         }}>
             <label>
