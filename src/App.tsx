@@ -1,10 +1,16 @@
 import { lazy, Suspense } from 'react'
-import { HashRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Choice from './Choice'
+import Topic from './Topic'
 
-const Topic = lazy(() => import("./Topic"))
 const Artist = lazy(() => import("./Artist"))
+
+const HomePageLink = () => (
+  <button>
+    <Link to="/">Pick New Topic</Link>
+  </button>
+)
 
 const App = () => (
   <div className="App">
@@ -17,15 +23,19 @@ const App = () => (
           } />
           
           <Route path="/topic/:topic/:page" element={
-            <Suspense>
+            <>
               <Topic />
-            </Suspense>
+              <HomePageLink />
+            </>
           } />
 
           <Route path="/artist/:artist" element={
-            <Suspense>
-              <Artist />
-            </Suspense>
+            <>
+              <Suspense>
+                <Artist />
+              </Suspense>
+              <HomePageLink />
+            </>
           } />
 
         </Routes>

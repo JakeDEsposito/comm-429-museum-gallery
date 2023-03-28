@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, redirect, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 // Warning: Incomplete Type, Lacks Some Data! (Using only what is nessisary for this project)
 export type TopicRes = {
@@ -20,14 +20,12 @@ const Topic = () => {
     let { topic, page } = useParams()
     const [data, setData] = useState<TopicRes>()
     const navigate = useNavigate()
-    const location = useLocation()
-    const path_noPage = location.pathname.substring(0, location.pathname.length - 1)
 
     const [startPage, setStartPage] = useState(page || "1")
 
     useEffect(() => {
-        fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic + "&page=" + startPage + "&limit=4").then(res => res.json()).then(data => setData(data))
-        navigate(path_noPage + startPage)
+        fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic + "&page=" + startPage + "&limit=1").then(res => res.json()).then(data => setData(data))
+        navigate("/topic/" + topic + "/" + startPage)
     }, [topic, startPage])
 
     if (!data)
@@ -38,12 +36,14 @@ const Topic = () => {
     // TODO: Add link to artist
     return (
         <section>
-            {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
-                <article key={id}>
-                    <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken. Sorry." />
-                    <h2>{title} - <Link to={`/artist/${artist_id}`}>{artist_title}</Link></h2>
-                </article>
-            ))}
+            <div className="works">
+                {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
+                    <article key={id}>
+                        <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken. Sorry." />
+                        <h2>{title}{artist_id === null ? <></> : <> - <Link to={`/artist/${artist_id}`}>{artist_title}</Link></>}</h2>
+                    </article>
+                ))}
+            </div>
             <button onClick={() => {
                 if (startPage !== "1")
                     setStartPage((p) => "" + (parseInt(p) - 1))

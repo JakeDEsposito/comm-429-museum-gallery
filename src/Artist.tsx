@@ -16,7 +16,7 @@ const Artist = () => {
         )
     
     return (
-        <section>
+        <section className="works">
         {data.data.map(({ artist_title, image_id, title, id, artist_id }) => (
             <article key={id}>
                 <img src={data.config.iiif_url + "/" + image_id + iiif_url_end} alt="Broken. Sorry." />

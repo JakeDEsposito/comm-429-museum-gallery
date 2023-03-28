@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.works {
+  display: grid;
+  grid-template-columns: 1fr; /* 1fr 1fr 1fr; */
+}
+
+.works img {
+  width: 16rem;
+}
