@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 // Warning: Incomplete Type, Lacks Some Data! (Using only what is nessisary for this project)
 export type TopicRes = {
