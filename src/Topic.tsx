@@ -26,7 +26,7 @@ const Topic = () => {
     useEffect(() => {
         fetch("https://api.artic.edu/api/v1/artworks/search?fields=id,title,artist_title,artist_id,image_id&query[term][is_public_domain]=true&q=" + topic + "&page=" + startPage + "&limit=1").then(res => res.json()).then(data => setData(data))
         navigate("/topic/" + topic + "/" + startPage)
-    }, [topic, startPage])
+    }, [topic, startPage, navigate])
 
     if (!data)
         return (
