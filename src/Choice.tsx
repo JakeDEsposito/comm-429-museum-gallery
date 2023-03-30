@@ -11,9 +11,12 @@ const Choice = () => {
             e.preventDefault()
         }}>
             <label>
-                Topic
-                <input value={topic} onChange={(e) => setTopic(e.currentTarget.value)} />
+                <h1>Topic</h1>
+                <p>Type a topic below to begin. Then hit submit.</p>
+                <input value={topic} onChange={(e) => setTopic(e.currentTarget.value.toLowerCase())} />
             </label>
+            <br />
+            <input className="buttonClass" type="submit" value="Submit" />
         </form>
     )
 }

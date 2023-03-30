@@ -7,9 +7,9 @@ import Topic from './Topic'
 const Artist = lazy(() => import("./Artist"))
 
 const HomePageLink = () => (
-  <button>
-    <Link to="/">Pick New Topic</Link>
-  </button>
+  <Link to="/">
+    <button>Pick New Topic</button>
+  </Link>
 )
 
 const App = () => (

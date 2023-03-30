@@ -44,13 +44,13 @@ const Topic = () => {
                     </article>
                 ))}
             </div>
-            <button onClick={() => {
+            <button style={{ width: "6rem" }} onClick={() => {
                 if (startPage !== "1")
                     setStartPage((p) => "" + (parseInt(p) - 1))
-            }}>previous</button>
-            <button onClick={() => {
+            }}>Previous</button>
+            <button style={{ width: "6rem" }} onClick={() => {
                 setStartPage((p) => "" + (parseInt(p) + 1))
-            }}>next</button>
+            }}>Next</button>
         </section>
     )
 }

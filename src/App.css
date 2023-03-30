@@ -45,3 +45,21 @@
 .works img {
   width: 16rem;
 }
+
+a {
+  color: white;
+}
+
+.buttonClass, button {
+  background-color: #3a84c1;
+  color: white;
+  border-style: none;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+button:hover, .buttonClass:hover {
+  cursor: pointer;
+}
