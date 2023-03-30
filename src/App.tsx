@@ -2,15 +2,10 @@ import { lazy, Suspense } from 'react'
 import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Choice from './Choice'
+import { HomePageLink } from './HomePageLink'
 import Topic from './Topic'
 
 const Artist = lazy(() => import("./Artist"))
-
-const HomePageLink = () => (
-  <Link to="/">
-    <button>Pick New Topic</button>
-  </Link>
-)
 
 const App = () => (
   <div className="App">

@@ -32,6 +32,14 @@ const Topic = () => {
         return (
             <div>loading...</div>
         )
+    
+    if (data.data.length === 0)
+        return (
+            <section>
+                <h1>Error</h1>
+                <p>There is no art on this topic. Please pick a different topic.</p>
+            </section>
+        )
 
     // TODO: Add link to artist
     return (
