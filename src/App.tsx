@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { HashRouter, Link, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Choice from './Choice'
 import { HomePageLink } from './HomePageLink'
