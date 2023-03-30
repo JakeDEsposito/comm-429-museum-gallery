@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/comm-429-museum-gallery/static/css/main.3679d164.css",
+    "main.js": "/comm-429-museum-gallery/static/js/main.52e7553a.js",
+    "static/js/22.21bff5a8.chunk.js": "/comm-429-museum-gallery/static/js/22.21bff5a8.chunk.js",
+    "static/js/787.0b1f3fc6.chunk.js": "/comm-429-museum-gallery/static/js/787.0b1f3fc6.chunk.js",
+    "index.html": "/comm-429-museum-gallery/index.html",
+    "main.3679d164.css.map": "/comm-429-museum-gallery/static/css/main.3679d164.css.map",
+    "main.52e7553a.js.map": "/comm-429-museum-gallery/static/js/main.52e7553a.js.map",
+    "22.21bff5a8.chunk.js.map": "/comm-429-museum-gallery/static/js/22.21bff5a8.chunk.js.map",
+    "787.0b1f3fc6.chunk.js.map": "/comm-429-museum-gallery/static/js/787.0b1f3fc6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3679d164.css",
+    "static/js/main.52e7553a.js"
+  ]
+}
